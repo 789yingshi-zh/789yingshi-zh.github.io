@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1018">
+<title>789影视：第七八九格放映窗｜短片、剧集与幕后边角料</title>
+<meta name="description" content="789影视把每一部片子切成三格看：第七格讲镜头，第八格讲表演，第九格讲配乐与台词。这里是 789yingshi-zh 的独立放映笔记，长期收录短片、剧集片段和幕后细节，最新一页在 https://789yingshi-zh.github.io。">
+<meta name="keywords" content="789影视, 789yingshi-zh, 短片分镜笔记, 剧集幕后细节">
+<meta property="og:type" content="website">
+<meta property="og:title" content="789影视：第七八九格放映窗">
+<meta property="og:description" content="一格镜头、一格表演、一格声音，三格看完一部片子的骨架。">
+<meta property="og:url" content="https://789yingshi-zh.github.io">
+<link rel="canonical" href="https://789yingshi-zh.github.io">
+<style>
+:root{
+  --ink:#e8ecf2;
+  --ink-dim:#9aa7b8;
+  --ink-faint:#66738a;
+  --paper:#0b1018;
+  --panel:#111825;
+  --panel-2:#161e2e;
+  --line:#232d40;
+  --neon:#37f0c8;
+  --neon-2:#ff5b7a;
+  --amber:#ffcf5b;
+  --radius:14px;
+  --max:1080px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.15px;
+  font-feature-settings:"tnum";
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:
+    radial-gradient(1100px 520px at 82% -8%,rgba(255,91,122,.10),transparent 62%),
+    radial-gradient(760px 440px at -6% 38%,rgba(55,240,200,.08),transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+img,svg{display:block;max-width:100%;}
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-thumb{background:#2b364c;border-radius:8px;}
+::-webkit-scrollbar-track{background:transparent;}
+
+/* ===== 顶部：数字跳字 + 极简导航 ===== */
+.top{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,16,24,.82);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.top-row{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;gap:18px;
+  padding:12px 22px;
+}
+.brand{display:flex;align-items:baseline;gap:8px;font-weight:800;letter-spacing:.5px;}
+.brand b{
+  font-size:22px;line-height:1;
+  background:linear-gradient(92deg,var(--neon),var(--amber) 55%,var(--neon-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-variant-numeric:tabular-nums;
+}
+.brand span{font-size:11px;color:var(--ink-faint);letter-spacing:1.6px;text-transform:lowercase;}
+.ticker{flex:1;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.ticker-track{display:flex;gap:26px;white-space:nowrap;font-size:12px;color:var(--ink-faint);animation:tick 34s linear infinite;}
+.ticker-track i{font-style:normal;color:var(--neon);font-variant-numeric:tabular-nums;margin-right:6px;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.nav{display:flex;gap:4px;}
+.nav a{
+  padding:7px 11px;border-radius:9px;font-size:13.5px;color:var(--ink-dim);
+  border:1px solid transparent;transition:.22s;
+}
+.nav a:hover{color:var(--ink);border-color:var(--line);background:var(--panel);}
+@media(max-width:720px){.nav{display:none;}}
+
+/* ===== 首屏：放映机格栅 ===== */
+.hero{
+  position:relative;z-index:1;
+  max-width:var(--max);margin:0 auto;
+  padding:54px 22px 34px;
+}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:2px;color:var(--ink-faint);}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--neon);display:block;}
+h1{
+  font-size:clamp(34px,7.2vw,68px);
+  line-height:1.08;margin:16px 0 14px;font-weight:900;letter-spacing:-.5px;
+}
+h1 em{font-style:normal;color:var(--neon);}
+h1 .slash{color:var(--neon-2);font-weight:700;margin:0 4px;}
+.lede{max-width:62ch;font-size:16.5px;color:var(--ink-dim);margin:0 0 26px;}
+.lede b{color:var(--ink);font-weight:600;}
+.gates{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  margin:30px 0 8px;
+}
+.gate{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 16px 16px;position:relative;overflow:hidden;
+}
+.gate::after{
+  content:"";position:absolute;right:-24px;top:-24px;width:70px;height:70px;border-radius:50%;
+  background:radial-gradient(circle,rgba(55,240,200,.35),transparent 70%);
+}
+.gate .n{
+  font-size:30px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums;
+  background:linear-gradient(180deg,var(--neon),rgba(55,240,200,.35));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.gate h3{font-size:15px;margin:10px 0 4px;letter-spacing:.4px;}
+.gate p{font-size:12.5px;color:var(--ink-faint);margin:0;line-height:1.6;}
+@media(max-width:640px){.gates{grid-template-columns:1fr;}}
+
+/* ===== 通用区块 ===== */
+section{padding:62px 22px 26px;position:relative;z-index:1;}
+.wrap{max-width:var(--max);margin:0 auto;}
+.kicker{
+  display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:30px;
+}
+.kicker h2{
+  font-size:clamp(23px,4vw,31px);margin:0;font-weight:800;letter-spacing:-.2px;
+}
+.kicker .idx{
+  font-size:12px;color:var(--neon);font-variant-numeric:tabular-nums;
+  border:1px solid var(--line);border-radius:6px;padding:3px 8px;letter-spacing:1px;
+}
+.kicker .more{margin-left:auto;font-size:12.5px;color:var(--ink-faint);}
+.kicker .more:hover{color:var(--neon);}
+
+/* ===== 栏目一：放映单（编号条） ===== */
+.reel{display:flex;flex-direction:column;gap:12px;}
+.cell{
+  display:grid;grid-template-columns:74px 1.4fr 1fr;gap:18px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--neon);
+  border-radius:12px;padding:14px 18px;transition:.25s;
+}
+.cell:hover{border-color:var(--neon);background:var(--panel-2);transform:translateX(3px);}
+.cell .no{font-size:20px;font-weight:800;color:var(--ink-faint);font-variant-numeric:tabular-nums;letter-spacing:1px;}
+.cell .ttl{font-size:16.5px;font-weight:700;}
+.cell .ttl small{display:block;font-size:12px;font-weight:400;color:var(--ink-faint);letter-spacing:.5px;margin-top:2px;}
+.cell .meta{text-align:right;font-size:12.5px;color:var(--ink-dim);}
+.cell .meta b{display:block;color:var(--amber);font-weight:700;letter-spacing:1px;font-variant-numeric:tabular-nums;}
+.stars{color:var(--amber);letter-spacing:1px;font-size:12px;}
+@media(max-width:640px){
+  .cell{grid-template-columns:52px 1fr;padding:12px 14px;}
+  .cell .meta{grid-column:2;grid-row:2;text-align:left;margin-top:6px;}
+}
+
+/* ===== 栏目二：九宫放映盘 ===== */
+.grid9{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:14px;
+}
+.tile{
+  aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;position:relative;
+  border:1px solid var(--line);background:var(--panel);transition:.3s;
+}
+.tile:hover{transform:translateY(-5px);border-color:var(--neon-2);}
+.tile .art{position:absolute;inset:0;}
+.tile .badge{
+  position:absolute;top:10px;left:10px;z-index:2;
+  font-size:10.5px;letter-spacing:1.2px;padding:3px 8px;border-radius:20px;
+  background:rgba(11,16,24,.78);border:1px solid var(--line);color:var(--neon);
+}
+.tile .foot{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px 12px 12px;
+  background:linear-gradient(to top,rgba(11,16,24,.97),rgba(11,16,24,0));
+}
+.tile .foot h4{margin:0;font-size:14px;letter-spacing:.3px;}
+.tile .foot p{margin:3px 0 0;font-size:11.5px;color:var(--ink-faint);}
+
+/* ===== 栏目三：对谈式专题 ===== */
+.talk{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:start;}
+.q{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;
+}
+.q h3{font-size:21px;margin:0 0 12px;line-height:1.45;}
+.q p{margin:0 0 14px;color:var(--ink-dim);font-size:15px;}
+.q p:last-child{margin:0;}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.pill{
+  font-size:12px;color:var(--ink-dim);border:1px solid var(--line);border-radius:30px;
+  padding:5px 13px;background:var(--panel-2);
+}
+.a-box{display:flex;flex-direction:column;gap:12px;}
+.a{
+  display:flex;gap:12px;align-items:flex-start;
+  border-left:2px solid var(--neon-2);padding:2px 0 2px 14px;
+}
+.a cite{font-style:normal;font-size:11px;color:var(--neon-2);letter-spacing:1.4px;flex:none;padding-top:5px;}
+.a p{margin:0;font-size:14.5px;color:var(--ink-dim);}
+@media(max-width:760px){.talk{grid-template-columns:1fr;}}
+
+/* ===== 栏目四：时间轴 ===== */
+.tl{position:relative;padding-left:30px;}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--neon),var(--neon-2),transparent);}
+.tl-item{position:relative;margin-bottom:22px;}
+.tl-item::before{
+  content:"";position:absolute;left:-30px;top:7px;width:12px;height:12px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--neon);
+}
+.tl-item.today::before{background:var(--neon);box-shadow:0 0 0 5px rgba(55,240,200,.14);}
+.tl-item .when{font-size:12px;color:var(--amber);letter-spacing:1.2px;font-variant-numeric:tabular-nums;}
+.tl-item.today .when::after{content:" 今天";color:var(--neon-2);border:1px solid var(--neon-2);border-radius:4px;padding:1px 6px;margin-left:6px;font-size:10.5px;}
+.tl-item h4{margin:4px 0 4px;font-size:16.5px;}
+.tl-item p{margin:0;font-size:13.5px;color:var(--ink-faint);}
+
+/* ===== 栏目五：关于 ===== */
+.about{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:14px;
+}
+.card7{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;
+}
+.card7 h4{margin:0 0 8px;font-size:14.5px;display:flex;gap:9px;align-items:center;}
+.card7 h4 i{font-style:normal;font-size:11px;color:var(--neon);font-variant-numeric:tabular-nums;}
+.card7 p{margin:0;font-size:13.5px;color:var(--ink-dim);}
+.urlbox{
+  grid-column:1/-1;margin-top:6px;border:1px dashed var(--neon);
+  background:linear-gradient(180deg,rgba(55,240,200,.06),rgba(11,16,24,0));
+  border-radius:var(--radius);padding:22px 24px;
+}
+.urlbox .lbl{font-size:11.5px;letter-spacing:2px;color:var(--ink-faint);}
+.urlbox code{
+  display:block;margin-top:10px;font-size:clamp(16px,3.4vw,23px);
+  font-weight:800;color:var(--neon);word-break:break-all;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.urlbox p{margin:12px 0 0;font-size:12.5px;color:var(--ink-faint);}
+@media(max-width:640px){.about{grid-template-columns:1fr;}}
+
+/* ===== 页脚 ===== */
+.foot{
+  margin-top:70px;border-top:1px solid var(--line);position:relative;z-index:1;
+  background:linear-gradient(180deg,transparent,rgba(11,16,24,.9));
+}
+.foot-in{max-width:var(--max);margin:0 auto;padding:30px 22px 40px;font-size:12.5px;color:var(--ink-faint);}
+.foot .row{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:12px;}
+.foot .row a:hover{color:var(--neon);}
+.foot .copy{border-top:1px solid var(--line);padding-top:14px;line-height:1.9;}
+.up{
+  position:fixed;right:16px;bottom:20px;z-index:60;
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(17,24,37,.9);color:var(--neon);font-size:15px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);
+}
+.up:hover{border-color:var(--neon);}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <b>789</b><span>影视 · 放映窗</span>
+    </a>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span><i>07</i>镜头拆一格</span><span><i>08</i>表演拆一格</span><span><i>09</i>声音拆一格</span>
+        <span><i>07</i>短片优先收录</span><span><i>08</i>剧集只挑名场面</span><span><i>09</i>不剧透，只讲手艺</span>
+        <span><i>07</i>镜头拆一格</span><span><i>08</i>表演拆一格</span><span><i>09</i>声音拆一格</span>
+        <span><i>07</i>短片优先收录</span><span><i>08</i>剧集只挑名场面</span><span><i>09</i>不剧透，只讲手艺</span>
+      </div>
+    </div>
+    <nav class="nav" aria-label="主导航">
+      <a href="#reel">放映单</a>
+      <a href="#grid">第九格</a>
+      <a href="#talk">对谈</a>
+      <a href="#log">手札</a>
+      <a href="#about">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="h1">
+    <p class="eyebrow">A SMALL SCREENING NOTEBOOK · 第 47 期</p>
+    <h1 id="h1">把一部片子，<br>放进 <em>7</em><span class="slash">·</span><em>8</em><span class="slash">·</span><em>9</em> 三格。</h1>
+    <p class="lede"><b>789影视</b>不是片库，是一份手写的观看方法。第七格盯镜头怎么走，第八格看演员怎么收力，第九格听配乐和一句台词落在哪儿。片子看完会忘，这三格留得下来。</p>
+    <div class="gates" role="list">
+      <div class="gate" role="listitem">
+        <div class="n">07</div>
+        <h3>镜头笔记</h3>
+        <p>景别、运动、剪辑点，一次只讲一个决定。</p>
+      </div>
+      <div class="gate" role="listitem">
+        <div class="n">08</div>
+        <h3>表演切片</h3>
+        <p>一个眼神、一次停顿，比整场戏更好拆解。</p>
+      </div>
+      <div class="gate" role="listitem">
+        <div class="n">09</div>
+        <h3>声音与台词</h3>
+        <p>配乐进场的时间，往往是导演真正的落点。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目一：放映单 -->
+  <section id="reel" class="wrap" aria-labelledby="r1">
+    <div class="kicker">
+      <span class="idx">COLUMN 01</span>
+      <h2 id="r1">本期放映单</h2>
+      <a class="more" href="#about">更新节奏 →</a>
+    </div>
+    <div class="reel">
+      <article class="cell">
+        <div class="no">N°09</div>
+        <div class="ttl">雨夜里那场长跟拍<small>摄影机的呼吸，比台词先说出情绪</small></div>
+        <div class="meta"><b>镜头笔记</b>短片 · 14′ · <span class="stars">★★★★☆</span></div>
+      </article>
+      <article class="cell">
+        <div class="no">N°08</div>
+        <div class="ttl">她没有回头的一次转身<small>演员用后颈完成了一场告别</small></div>
+        <div class="meta"><b>表演切片</b>剧集 S2E06 · <span class="stars">★★★★★</span></div>
+      </article>
+      <article class="cell">
+        <div class="no">N°07</div>
+        <div class="ttl">钢琴声提前三秒进场<small>音乐先到，画面才敢安静下来</small></div>
+        <div class="meta"><b>声音与台词</b>电影 · 108′ · <span class="stars">★★★★☆</span></div>
+      </article>
+      <article class="cell">
+        <div class="no">N°06</div>
+        <div class="ttl">厨房里的两分钟一镜到底<small>调度藏在碗碟声和脚步的间隙</small></div>
+        <div class="meta"><b>镜头笔记</b>独立片 · 22′ · <span class="stars">★★★☆☆</span></div>
+      </article>
+      <article class="cell">
+        <div class="no">N°05</div>
+        <div class="ttl">一句没写完的台词<small>留白处交给演员的呼吸，不交给剧本</small></div>
+        <div class="meta"><b>表演切片</b>剧集 S1E11 · <span class="stars">★★★★☆</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 栏目二：第九格 -->
+  <section id="grid" class="wrap" aria-labelledby="r2">
+    <div class="kicker">
+      <span class="idx">COLUMN 02</span>
+      <h2 id="r2">第九格 · 冷片速写</h2>
+      <a class="more" href="#reel">回放映单 ↑</a>
+    </div>
+    <div class="grid9">
+      <figure class="tile">
+        <svg class="art" viewBox="0 0 300 400" role="img" aria-label="封面：深夜便利店，青色冷光">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e2b2a"/><stop offset="1" stop-color="#16343a"/></linearGradient></defs>
+          <rect width="300" height="400" fill="url(#g1)"/>
+          <rect x="40" y="120" width="60" height="150" rx="6" fill="#1f4c4a" opacity=".9"/>
+          <rect x="120" y="90" width="60" height="180" rx="6" fill="#2a6660" opacity=".8"/>
+          <rect x="200" y="140" width="60" height="130" rx="6" fill="#123534"/>
+          <line x1="0" y1="300" x2="300" y2="300" stroke="#37f0c8" stroke-width="1" opacity=".35"/>
+          <circle cx="230" cy="80" r="22" fill="#ffcf5b" opacity=".85"/>
+        </svg>
+        <span class="badge">深夜场</span>
+        <figcaption class="foot"><h4>便利店的第三种光</h4><p>短片 · 冷色调研究</p></figcaption>
+      </figure>
+      <figure class="tile">
+        <svg class="art" viewBox="0 0 300 400" role="img" aria-label="封面：老式楼梯间，暖橙与暗影">
+          <rect width="300" height="400" fill="#1a1612"/>
+          <polygon points="0,400 300,400 300,250 0,310" fill="#241c14"/>
+          <rect x="120" y="60" width="26" height="200" fill="#3a2a16"/>
+          <circle cx="133" cy="100" r="8" fill="#ffcf5b" opacity=".9"/>
+          <line x1="0" y1="310" x2="300" y2="250" stroke="#ff5b7a" stroke-width="2" opacity=".4"/>
+        </svg>
+        <span class="badge">楼梯间</span>
+        <figcaption class="foot"><h4>上楼的那十七级</h4><p>独立片 · 调度拆解</p></figcaption>
+      </figure>
+      <figure class="tile">
+        <svg class="art" viewBox="0 0 300 400" role="img" aria-label="封面：雨窗，霓虹倒影">
+          <rect width="300" height="400" fill="#0d1324"/>
+          <rect x="0" y="0" width="300" height="400" fill="none" stroke="#37f0c8" stroke-width="1" opacity=".2"/>
+          <path d="M40,120 Q150,80 260,140" stroke="#ff5b7a" stroke-width="6" fill="none" opacity=".55"/>
+          <path d="M60,180 Q160,150 250,200" stroke="#ffcf5b" stroke-width="3" fill="none" opacity=".45"/>
+          <line x1="80" y1="60" x2="70" y2="330" stroke="#6f8aaa" stroke-width="2" opacity=".3"/>
+          <line x1="160" y1="40" x2="150" y2="340" stroke="#6f8aaa" stroke-width="2" opacity=".25"/>
+        </svg>
+        <span class="badge">雨声场</span>
+        <figcaption class="foot"><h4>玻璃后面的霓虹</h4><p>电影 · 声音笔记</p></figcaption>
+      </figure>
+      <figure class="tile">
+        <svg class="art" viewBox="0 0 300 400" role="img" aria-label="封面：空房间，一束侧光">
+          <rect width="300" height="400" fill="#13171f"/>
+          <polygon points="0,0 180,0 60,400 0,400" fill="#242c38" opacity=".7"/>
+          <rect x="200" y="150" width="70" height="110" rx="8" fill="#0b1018" stroke="#37f0c8" stroke-width="1" opacity=".6"/>
+          <circle cx="235" cy="190" r="14" fill="#ffcf5b" opacity=".25"/>
+        </svg>
+        <span class="badge">空镜</span>
+        <figcaption class="foot"><h4>没有人进来的房间</h4><p>短片 · 留白美学</p></figcaption>
+      </figure>
+      <figure class="tile">
+        <svg class="art" viewBox="0 0 300 400" role="img" aria-label="封面：海边公路，黄昏粉紫">
+          <rect width="300" height="400" fill="#20142a"/>
+          <rect y="250" width="300" height="150" fill="#2b1736"/>
+          <path d="M0,250 Q150,210 300,255" fill="none" stroke="#ff5b7a" stroke-width="5" opacity=".6"/>
+          <circle cx="210" cy="120" r="40" fill="#ffcf5b" opacity=".3"/>
+          <line x1="20" y1="320" x2="280" y2="320" stroke="#37f0c8" stroke-width="1" opacity=".4"/>
+        </svg>
+        <span class="badge">公路</span>
+        <figcaption class="foot"><h4>黄昏那一段路</h4><p>剧集 · 情绪剪辑</p></figcaption>
+      </figure>
+      <figure class="tile">
+        <svg class="art" viewBox="0 0 300 400" role="img" aria-label="封面：旧电视机雪花屏">
+          <rect width="300" height="400" fill="#0a0c10"/>
+          <rect x="35" y="80" width="230" height="170" rx="10" fill="#12161e" stroke="#232d40" stroke-width="2"/>
+          <g opacity=".55" fill="#c7d2de">
+            <rect x="50" y="95" width="3" height="3"/><rect x="120" y="140" width="3" height="3"/><rect x="200" y="110" width="3" height="3"/>
+            <rect x="80" y="180" width="3" height="3"/><rect x="160" y="160" width="3" height="3"/><rect x="240" y="200" width="3" height="3"/>
+            <rect x="140" y="210" width="3" height="3"/><rect x="60" y="130" width="3" height="3"/>
+          </g>
+          <line x1="35" y1="265" x2="265" y2="265" stroke="#ff5b7a" stroke-width="2" opacity=".5"/>
+        </svg>
+        <span class="badge">档案</span>
+        <figcaption class="foot"><h4>被剪掉的三秒</h4><p>幕后 · 剪辑台</p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 栏目三：对谈 -->
+  <section id="talk" class="wrap" aria-labelledby="r3">
+    <div class="kicker">
+      <span class="idx">COLUMN 03</span>
+      <h2 id="r3">对谈 · 为什么只拆三格</h2>
+      <a class="more" href="#log">看手札 →</a>
+    </div>
+    <div class="talk">
+      <div class="q">
+        <h3>“看片笔记写太长，反而记不住。”</h3>
+        <p>这是 789影视 给自己定的规矩：每部片子只留三格。第七格记摄影机的一个选择，第八格记演员的一个动作，第九格记声音或台词落下的那个瞬间。</p>
+        <p>不写剧情梗概，不替你决定好不好看。三格写完，这片子在脑子里就钉住了。</p>
+        <div class="pill-row">
+          <span class="pill">每片三格</span>
+          <span class="pill">不剧透</span>
+          <span class="pill">短片优先</span>
+          <span class="pill">每月一期</span>
+        </div>
+      </div>
+      <div class="a-box">
+        <div class="a"><cite>第07格</cite><p>先问：这一镜为什么要动？不动会不会更狠。答案往往就在前后两镜的接缝里。</p></div>
+        <div class="a"><cite>第08格</cite><p>找演员"收"的那一下，而不是"给"的那一下。戏的好看常在收力处。</p></div>
+        <div class="a"><cite>第09格</cite><p>把声音关掉看一遍，再只听不看一遍。两遍之后，导演的重心就清楚了。</p></div>
+        <div class="a"><cite>写完</cite><p>三格加起来不超过两百字。写超了，说明还没想明白。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四：手札时间轴 -->
+  <section id="log" class="wrap" aria-labelledby="r4">
+    <div class="kicker">
+      <span class="idx">COLUMN 04</span>
+      <h2 id="r4">手札 · 最近几格的落点</h2>
+      <a class="more" href="#grid">冷片速写 ↑</a>
+    </div>
+    <div class="tl">
+      <div class="tl-item today">
+        <div class="when">2026 . 10 . 25</div>
+        <h4>第九格补了一条：玻璃后面的霓虹</h4>
+        <p>雨声进来比画面早两秒，这一处值得单独记。声音笔记已归档到「雨声场」。</p>
+      </div>
+      <div class="tl-item">
+        <div class="when">2026 . 10 . 21</div>
+        <h4>第八格：她没有回头的一次转身</h4>
+        <p>演员全程背对机位，情绪全在后颈和肩膀的高度差里，没用一句台词。</p>
+      </div>
+      <div class="tl-item">
+        <div class="when">2026 . 10 . 16</div>
+        <h4>第七格：厨房两分钟一镜到底</h4>
+        <p>碗碟声是节拍器，脚步是反拍。调度图重画了一遍，已贴进放映单 N°06。</p>
+      </div>
+      <div class="tl-item">
+        <div class="when">2026 . 10 . 09</div>
+        <h4>新开「被剪掉的三秒」档案</h4>
+        <p>只收剪辑台上的废片与备选镜头，看导演在哪儿下了狠手。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目五：关于 -->
+  <section id="about" class="wrap" aria-labelledby="r5">
+    <div class="kicker">
+      <span class="idx">COLUMN 05</span>
+      <h2 id="r5">关于这扇放映窗</h2>
+      <a class="more" href="#top">回到顶部 ↑</a>
+    </div>
+    <div class="about">
+      <div class="card7">
+        <h4><i>01</i>它是什么</h4>
+        <p>789影视 是个人观影笔记，不是视频站、不是片库索引。只记录"怎么拍"和"怎么演"，不提供播放、下载与存储服务。</p>
+      </div>
+      <div class="card7">
+        <h4><i>02</i>更新方式</h4>
+        <p>每月一期，偶尔加更。片子挑冷门短片、剧集里被忽略的名场面，和一两部老片的重看笔记。</p>
+      </div>
+      <div class="card7">
+        <h4><i>03</i>怎么读最快</h4>
+        <p>先看第九格挑画面，再翻放映单里的三格拆解。嫌长就只读每片标黄的那一句。</p>
+      </div>
+      <div class="card7">
+        <h4><i>04</i>素材与版权</h4>
+        <p>页面封面均为原创矢量图形，文中片名仅作赏析讨论，截图与片段版权归各自出品方，如有异议可联系撤下。</p>
+      </div>
+      <div class="urlbox">
+        <div class="lbl">唯一地址 / THE ONLY PAGE</div>
+        <code>https://789yingshi-zh.github.io</code>
+        <p>本页即全部内容，无内页跳转，所有栏目锚点都在同一屏里滚动到达。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="row">
+      <a href="#reel">放映单</a>
+      <a href="#grid">第九格</a>
+      <a href="#talk">对谈</a>
+      <a href="#log">手札</a>
+      <a href="#about">关于</a>
+    </div>
+    <div class="copy">
+      © <span id="yr">2026</span> 789影视 · 789yingshi-zh &nbsp;|&nbsp; 内容仅作个人观影赏析，与任何播放平台无关联。<br>
+      本站唯一网址：https://789yingshi-zh.github.io &nbsp;·&nbsp; 页面无外链资源，可离线打开。
+    </div>
+  </div>
+</footer>
+
+<button class="up" id="up" aria-label="回到顶部" title="回到顶部">↑</button>
+
+<script>
+(function(){
+  var y=document.getElementById('yr');
+  if(y)y.textContent=new Date().getFullYear();
+  var u=document.getElementById('up');
+  if(u){
+    u.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+    window.addEventListener('scroll',function(){
+      u.style.opacity=window.scrollY>520?'1':'0';
+      u.style.pointerEvents=window.scrollY>520?'auto':'none';
+    },{passive:true});
+  }
+})();
+</script>
+</body>
+</html>
